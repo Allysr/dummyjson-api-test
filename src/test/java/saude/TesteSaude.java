@@ -6,6 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static br.com.dummy.cliente.ClienteSaude.consultaSaudeDaApi;
+import static org.hamcrest.Matchers.is;
 
 public class TesteSaude extends BaseTeste {
 
@@ -14,6 +15,8 @@ public class TesteSaude extends BaseTeste {
     public void deveValidarSaudeApi(){
         consultaSaudeDaApi(configuracaoRequisicao)
                 .then()
-                .statusCode(HttpStatus.SC_OK);
+                .spec(configuracaoResposta)
+                .statusCode(HttpStatus.SC_OK)
+                .body("status", is("ok"));
     }
 }

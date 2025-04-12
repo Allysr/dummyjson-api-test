@@ -19,11 +19,11 @@ public class BaseTeste {
         configuracaoRequisicao = new RequestSpecBuilder()
                 .setBaseUri(lerPropriedades("base.url"))
                 .setContentType("application/json")
-                .log(LogDetail.ALL)
                 .build();
 
         configuracaoResposta = new ResponseSpecBuilder()
                 .expectContentType("application/json")
+                .log(LogDetail.ALL)
                 .build();
 
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
