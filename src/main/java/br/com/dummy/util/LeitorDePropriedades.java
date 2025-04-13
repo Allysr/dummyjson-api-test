@@ -1,4 +1,4 @@
-package br.com.dummy.configuracoes;
+package br.com.dummy.util;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;

@@ -2,7 +2,6 @@ package funcional;
 
 import br.com.dummy.base.BaseTeste;
 import br.com.dummy.modelos.resposta.ModeloRespostaProduto;
-import io.restassured.response.Response;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
 
@@ -20,10 +19,8 @@ public class TesteProdutos extends BaseTeste {
                spec(configuracaoResposta).
                statusCode(HttpStatus.SC_OK).
                extract().
-               body().
                jsonPath().
                getList("products", ModeloRespostaProduto.class);
-
 
         assertAll("Validações detalhadas da lista de produtos",
                 () -> assertFalse(produtos.isEmpty(), "A lista de produtos não deve estar vazia"),
