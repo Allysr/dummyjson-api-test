@@ -11,4 +11,11 @@ public class FabricaLogin {
                 password(lerPropriedades("senha")).
                 build();
     }
+
+    public static ModeloRequisicaoUsuario dadosLoginInvalido() {
+        return ModeloRequisicaoUsuario.builder().
+                username(lerPropriedades("usuario")).
+                password("SenhaIncorreta123").
+                build();
+    }
 }
