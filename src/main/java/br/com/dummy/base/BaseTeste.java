@@ -8,7 +8,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 import org.junit.jupiter.api.BeforeEach;
 
-import static br.com.dummy.configuracoes.LeitorDePropriedades.lerPropriedades;
+import static br.com.dummy.util.LeitorDePropriedades.lerPropriedades;
 
 public class BaseTeste {
     protected static RequestSpecification configuracaoRequisicao;
