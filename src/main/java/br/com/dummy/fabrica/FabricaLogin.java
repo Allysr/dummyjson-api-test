@@ -10,6 +10,5 @@ public class FabricaLogin {
                 usuario(lerPropriedades("usuario")).
                 senha(lerPropriedades("senha")).
                 build();
-
     }
 }
