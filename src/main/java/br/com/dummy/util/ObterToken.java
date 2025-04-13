@@ -1,14 +1,17 @@
 package br.com.dummy.util;
 
+import io.restassured.specification.RequestSpecification;
+
 import static br.com.dummy.fabrica.FabricaLogin.dadosLoginValido;
 import static io.restassured.RestAssured.given;
 
 public class ObterToken {
     public static final String CAMINHO_LOGIN = "/auth/login";
 
-    public static String obterTokenLogin(){
+    public static String obterTokenLogin(RequestSpecification configuracaoRequesicao){
         String token =
                 given().
+                        spec(configuracaoRequesicao).
                         body(dadosLoginValido()).
                         when().
                         post(CAMINHO_LOGIN).
