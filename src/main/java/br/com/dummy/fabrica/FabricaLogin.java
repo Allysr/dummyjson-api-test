@@ -7,8 +7,8 @@ import static br.com.dummy.util.LeitorDePropriedades.lerPropriedades;
 public class FabricaLogin {
     public static ModeloRequisicaoUsuario dadosLoginValido(){
         return ModeloRequisicaoUsuario.builder().
-                usuario(lerPropriedades("usuario")).
-                senha(lerPropriedades("senha")).
+                username(lerPropriedades("usuario")).
+                password(lerPropriedades("senha")).
                 build();
     }
 }

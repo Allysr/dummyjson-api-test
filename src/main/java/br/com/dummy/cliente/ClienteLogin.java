@@ -15,6 +15,6 @@ public class ClienteLogin {
                 spec(configuracaoRequisicao).
                 body(dadosLoginValido()).
                 when().
-                get(CAMINHO_LOGIN);
+                post(CAMINHO_LOGIN);
     }
 }

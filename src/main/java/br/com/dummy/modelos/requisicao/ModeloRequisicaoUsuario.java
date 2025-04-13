@@ -10,6 +10,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ModeloRequisicaoUsuario {
-    private String usuario;
-    private String senha;
+    private String username;
+    private String password;
 }
