@@ -1,6 +1,7 @@
 package funcional;
 
 import br.com.dummy.base.BaseTeste;
+import br.com.dummy.modelos.requisicao.ModeloRequisicaoUsuario;
 import br.com.dummy.modelos.resposta.ModeloRespostaProduto;
 import org.apache.http.HttpStatus;
 import org.junit.jupiter.api.Test;
@@ -9,6 +10,7 @@ import java.util.List;
 
 import static br.com.dummy.cliente.ClienteProdutos.consultaProdutos;
 import static br.com.dummy.cliente.ClienteProdutos.consultaProdutosComAutenticacao;
+import static br.com.dummy.fabrica.FabricaLogin.dadosLoginValido;
 import static br.com.dummy.util.ObterToken.obterTokenLogin;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -35,7 +37,8 @@ public class TesteProdutos extends BaseTeste {
 
     @Test
     public void validarListaProdutosComUsuarioAutenticado(){
-        String token =  obterTokenLogin(configuracaoRequisicao);
+        ModeloRequisicaoUsuario usuarioValido = dadosLoginValido();
+        String token =  obterTokenLogin(configuracaoRequisicao, usuarioValido);
 
         produtos = consultaProdutosComAutenticacao(configuracaoRequisicao,configuracaoResposta, token).
                 statusCode(HttpStatus.SC_OK).
