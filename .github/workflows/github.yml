@@ -1,0 +1,35 @@
+name: CI - Testes DummyJson API
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: ✨ Checkout do código
+        uses: actions/checkout@v4
+
+      - name: ☕ Configurar Java 23
+        uses: actions/setup-java@v4
+        with:
+          distribution: 'temurin'
+          java-version: '23'
+
+      - name: 📦 Instalar dependências e executar testes
+        run: mvn clean test
+
+      - name: 📊 Gerar relatório Allure
+        if: always()
+        run: mvn allure:report
+
+      - name: 📤 Publicar artefatos do Allure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin
