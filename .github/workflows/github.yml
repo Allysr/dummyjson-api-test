@@ -1,20 +1,21 @@
-name: CI - Testes DummyJson API
+name: CI - Testes DummyJson API 😊
 
 on:
+  workflow_dispatch:
   push:
     branches: [master]
   pull_request:
     branches: [master]
 
 jobs:
-  build-and-test:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: ✨ Checkout do código
         uses: actions/checkout@v4
 
-      - name: ☕ Configurar Java 23
+      - name: ☕ Configurar o Java 23
         uses: actions/setup-java@v4
         with:
           distribution: 'temurin'
@@ -23,13 +24,30 @@ jobs:
       - name: 📦 Instalar dependências e executar testes
         run: mvn clean test
 
+      - name: 💻 Checkout do histórico do GitHub Pages
+        uses: actions/checkout@v4
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+
       - name: 📊 Gerar relatório Allure
         if: always()
         run: mvn allure:report
 
-      - name: 📤 Publicar artefatos do Allure
+      - name: 🛠️ Gerar HTML do Allure
+        uses: simple-elf/allure-report-action@v1.7
         if: always()
-        uses: actions/upload-artifact@v4
         with:
-          name: allure-report
-          path: target/site/allure-maven-plugin
+          gh_pages: gh-pages
+          allure_history: allure-history
+          allure_results: target/allure-results
+
+      - name: 🚀 Publicar relatório no GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        if: always()
+        with:
+          github_token: ${{ secrets.GH_TOKEN }}
+          publish_branch: gh-pages
+          publish_dir: allure-history
