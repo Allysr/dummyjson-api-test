@@ -1,15 +1,17 @@
-package br.com.dummy.modelos.resposta;
+package br.com.dummy.modelos.requisicao;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonInclude;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
+@Builder
 @AllArgsConstructor
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class ModeloRespostaProduto {
+@NoArgsConstructor
+@JsonInclude(JsonInclude.Include.NON_DEFAULT)
+public class ModeloRequisicaoProduto {
     private Integer id;
     private String title;
     private String description;
@@ -20,5 +22,6 @@ public class ModeloRespostaProduto {
     private String brand;
     private String category;
     private String thumbnail;
-
 }
+
+

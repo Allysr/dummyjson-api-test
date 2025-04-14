@@ -9,16 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class ModeloRespostaProduto {
-    private Integer id;
+public class ModeloRespostaProdutoDeletado {
+    private int id;
     private String title;
-    private String description;
-    private int price;
-    private double discountPercentage;
-    private double rating;
-    private int stock;
-    private String brand;
-    private String category;
-    private String thumbnail;
-
+    private Boolean isDeleted;
+    private String deletedOn;
 }

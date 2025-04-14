@@ -23,7 +23,7 @@ public class BaseTeste {
 
         configuracaoResposta = new ResponseSpecBuilder()
                 .expectContentType("application/json")
-                .log(LogDetail.ALL)
+                .log(LogDetail.BODY)
                 .build();
 
         RestAssured.enableLoggingOfRequestAndResponseIfValidationFails();
