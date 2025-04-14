@@ -1,0 +1,12 @@
+{
+  "id" : 1,
+  "title" : "Perfume Free Oil",
+  "description" : "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+  "price" : 130,
+  "discountPercentage" : 7.17,
+  "rating" : 4.94,
+  "stock" : 5,
+  "brand" : "Impression of Acqua",
+  "category" : "beauty",
+  "thumbnail" : "https://cdn.dummyjson.com/products/images/beauty/Essence%20Mascara%20Lash%20Princess/thumbnail.png"
+}

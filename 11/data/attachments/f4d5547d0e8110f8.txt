@@ -1,0 +1,6 @@
+{
+  "id" : 1,
+  "title" : "Essence Mascara Lash Princess",
+  "isDeleted" : true,
+  "deletedOn" : "2025-04-14T01:57:54.511Z"
+}
